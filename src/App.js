@@ -1,25 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchAccounts } from "./actions/accountActions";
+import AccountList from './components/AccountList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React - for reals
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    console.log(this.props);
+    this.props.fetchAccounts();
+  }
+
+  handleLoading = () => {
+    if (this.props.loading) {
+      return <div>Loading...</div>
+    } else {
+      return <AccountList accounts={this.props.accounts} />
+    }
+  }
+
+  render() {
+    console.log(this.props.accounts);
+    return (
+      <div className="App">
+        <h1>Top Accounts</h1>
+          {this.handleLoading()}
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    accounts: state.accounts,
+    loading: state.loading,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchAccounts: () => dispatch(fetchAccounts()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
