@@ -2,7 +2,8 @@ import './App.css';
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchAccounts } from "./actions/accountActions";
-import AccountList from './components/AccountList';
+import AccountsList from './components/AccountsList';
+import AccountInput from './components/AccountInput';
 
 class App extends Component {
   componentDidMount() {
@@ -10,20 +11,12 @@ class App extends Component {
     this.props.fetchAccounts();
   }
 
-  handleLoading = () => {
-    if (this.props.loading) {
-      return <div>Loading...</div>
-    } else {
-      return <AccountList accounts={this.props.accounts} />
-    }
-  }
-
   render() {
-    console.log(this.props.accounts);
     return (
       <div className="App">
+        <AccountInput />
         <h1>Top Accounts</h1>
-          {this.handleLoading()}
+        <AccountsList accounts={this.props.accounts} />
       </div>
     );
   }
@@ -31,8 +24,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    accounts: state.accounts,
-    loading: state.loading,
+    accounts: state.accounts
   };
 };
 
