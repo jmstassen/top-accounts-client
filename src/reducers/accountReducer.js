@@ -10,9 +10,11 @@ const initialState = {
 export default function accountReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_ACCOUNTS:
+      const current_account = action.payload[0]
       return {
         ...state,
-        items: action.payload
+        items: action.payload,
+        item: current_account
       };
     case NEW_ACCOUNT:
       console.log(action)
