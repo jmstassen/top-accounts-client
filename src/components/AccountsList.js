@@ -6,11 +6,11 @@ import { fetchAccounts } from '../actions/accountActions'
 
 
 class AccountsList extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchAccounts();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     if (nextProps.newAccount) {
       this.props.accounts.unshift(nextProps.newAccount)
     }
@@ -18,7 +18,7 @@ class AccountsList extends Component {
 
   accountsList = () => {
     return this.props.accounts.map(account =>
-      <p key={account.id}>{account.account_name}</p>
+      <li key={account.id}>{account.account_name}</li>
     )
   }
 
@@ -39,8 +39,8 @@ AccountsList.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    accounts: state.accounts.items,
-    newAccount: state.accounts.item
+   accounts: state.accounts.items,
+   newAccount: state.accounts.item
 })
 
 export default connect(mapStateToProps, { fetchAccounts })(AccountsList)
