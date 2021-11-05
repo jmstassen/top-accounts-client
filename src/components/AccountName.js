@@ -16,7 +16,7 @@ class AccountName extends Component {
   render() {
     return (
       <div>
-        {this.props.item.account_name}
+        {this.props.current_account.account_name}
       </div>
     )
   }
@@ -29,7 +29,7 @@ class AccountName extends Component {
 // }
 
 const mapStateToProps = state => ({
-   item: state.accounts.item
+   current_account: state.accounts.current_account
 })
 
 export default connect(mapStateToProps, null)(AccountName)
