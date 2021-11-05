@@ -11,7 +11,7 @@ class SummaryContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-   item: state.accounts.item
+   current_account: state.current_account
 })
 
 export default connect(mapStateToProps, null)(SummaryContainer)
