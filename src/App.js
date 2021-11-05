@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div className="app">
         <div className="container-card">
-            <SummaryContainer account={this.props.accounts.item} />
+          <SummaryContainer account={this.props.current_account} />
         </div>
         <div className="container-card">
           <h1>Objectives Container</h1>
