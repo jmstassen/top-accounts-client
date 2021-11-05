@@ -3,8 +3,8 @@ import cuid from 'cuid';
 export const cuidFn = cuid;
 
 const initialState = {
-  items: [],
-  item: {}
+  accounts: [],
+  current_account: {}
 }
 
 export default function accountReducer(state = initialState, action) {
@@ -13,8 +13,8 @@ export default function accountReducer(state = initialState, action) {
       const current_account = action.payload[0]
       return {
         ...state,
-        items: action.payload,
-        item: current_account
+        accounts: action.payload,
+        current_account: current_account
       };
     case NEW_ACCOUNT:
       console.log(action)
