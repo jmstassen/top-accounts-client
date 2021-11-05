@@ -17,7 +17,7 @@ class AccountsList extends Component {
   }
 
   accountsList = () => {
-    return this.props.accounts.map(account =>
+    return this.props.accounts.accounts.map(account =>
       <li key={account.id}>{account.account_name}</li>
     )
   }
@@ -39,7 +39,7 @@ AccountsList.propTypes = {
 }
 
 const mapStateToProps = state => ({
-   accounts: state.accounts.items,
+   accounts: state.accounts,
    newAccount: state.accounts.item
 })
 
