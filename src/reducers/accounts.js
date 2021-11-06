@@ -17,11 +17,10 @@ export default function accountReducer(state = initialState, action) {
         current_account: current_account
       };
     case NEW_ACCOUNT:
-      console.log(action)
       const account = { account_name: action.payload.account_name, activities: [], people: [], id: cuidFn() }
       return {
         ...state,
-        item: account
+        new_account: account
       }
     default:
       return state;
