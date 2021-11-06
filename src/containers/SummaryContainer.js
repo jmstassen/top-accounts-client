@@ -5,9 +5,12 @@ import AccountName from "../components/AccountName";
 class SummaryContainer extends Component {
 
   render() {
-    return <AccountName />
+    return (
+      <div>
+        <AccountName />
+      </div>
+    ) 
   }
-
 }
 
 const mapStateToProps = state => ({
