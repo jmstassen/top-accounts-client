@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { fetchAccounts } from '../actions/accountActions'
-
-
 
 class AccountName extends Component {
 
@@ -22,11 +19,9 @@ class AccountName extends Component {
   }
 }
 
-// AccountsList.propTypes = {
-// //   fetchAccounts: PropTypes.func.isRequired,
-//   accounts: PropTypes.array.isRequired,
-//   newAccount: PropTypes.object
-// }
+AccountName.propTypes = {
+ current_account: PropTypes.object.isRequired,
+}
 
 const mapStateToProps = state => ({
    current_account: state.accounts.current_account
