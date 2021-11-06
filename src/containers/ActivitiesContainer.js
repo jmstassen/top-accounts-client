@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import AccountName from "../components/AccountName";
+import Activity from "../components/Activity";
 
-class SummaryContainer extends Component {
+class ActivitiesContainer extends Component {
 
   render() {
-    return <AccountName />
+    return <div>
+      <p>Activities</p>
+    </div>
   }
 
 }
@@ -14,4 +16,4 @@ const mapStateToProps = state => ({
    current_account: state.current_account
 })
 
-export default connect(mapStateToProps, null)(SummaryContainer)
+export default connect(mapStateToProps, null)(ActivitiesContainer)
