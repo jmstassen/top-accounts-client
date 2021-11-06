@@ -5,6 +5,9 @@ import { fetchAccounts } from "./actions/accountActions";
 import AccountsList from './components/AccountsList';
 import AccountInput from './components/AccountInput';
 import SummaryContainer from './containers/SummaryContainer';
+import ObjectivesContainer from './containers/ObjectivesContainer';
+import RightColumnContainer from './containers/RightColumnContainer';
+import ActivitiesContainer from './containers/ActivitiesContainer';
 
 class App extends Component {
   componentDidMount() {
@@ -19,15 +22,13 @@ class App extends Component {
           <SummaryContainer account={this.props.current_account} />
         </div>
         <div className="container-card">
-          <h1>Objectives Container</h1>
+          <ObjectivesContainer account={this.props.current_account} />
         </div>
         <div className="right-column-card">
-          <h1>My Top Accounts</h1>
-          <AccountsList accounts={this.props.accounts} />
-          <AccountInput />
+          <RightColumnContainer accounts={this.props.accounts} />
         </div>
         <div className="activity-container">
-          <h1>Activities Container</h1>
+          <ActivitiesContainer account={this.props.current_account} />
         </div>
       </div>
     );
