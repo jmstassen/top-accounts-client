@@ -11,13 +11,13 @@ class AccountsList extends Component {
   }
 
   componentDidUpdate(nextProps) {
-    if (nextProps.newAccount) {
-      this.props.accounts.unshift(nextProps.newAccount)
+    if (nextProps.new_account) {
+      this.props.accounts.unshift(nextProps.new_account)
     }
   }
 
   accountsList = () => {
-    return this.props.accounts.accounts.map(account =>
+    return this.props.accounts.map(account =>
       <li key={account.id}>{account.account_name}</li>
     )
   }
@@ -35,12 +35,12 @@ class AccountsList extends Component {
 AccountsList.propTypes = {
   fetchAccounts: PropTypes.func.isRequired,
   accounts: PropTypes.array.isRequired,
-  newAccount: PropTypes.object
+  new_account: PropTypes.object
 }
 
 const mapStateToProps = state => ({
-   accounts: state.accounts,
-   newAccount: state.accounts.item
+   accounts: state.accounts.accounts,
+   new_account: state.accounts.new_account
 })
 
 export default connect(mapStateToProps, { fetchAccounts })(AccountsList)
