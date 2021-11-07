@@ -2,8 +2,6 @@ import './App.css';
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchAccounts } from "./actions/accountActions";
-import AccountsList from './components/AccountsList';
-import AccountInput from './components/AccountInput';
 import SummaryContainer from './containers/SummaryContainer';
 import ObjectivesContainer from './containers/ObjectivesContainer';
 import RightColumnContainer from './containers/RightColumnContainer';
