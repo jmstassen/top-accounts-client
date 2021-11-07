@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class AccountName extends Component {
@@ -13,18 +12,14 @@ class AccountName extends Component {
   render() {
     return (
       <div>
-        {this.props.current_account.account_name}
+        AccountName
       </div>
     )
   }
 }
 
-AccountName.propTypes = {
- current_account: PropTypes.object.isRequired,
-}
-
 const mapStateToProps = state => ({
-   current_account: state.accounts.current_account
+   current_account: state.current_account
 })
 
 export default connect(mapStateToProps, null)(AccountName)
