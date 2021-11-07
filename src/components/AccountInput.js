@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { createAccount } from '../actions/accountActions'
 
 class AccountInput extends Component {
@@ -48,8 +48,8 @@ class AccountInput extends Component {
 
 }
 
-AccountInput.propTypes = {
-  createAccount: PropTypes.func.isRequired
-};
+// AccountInput.propTypes = {
+//   createAccount: PropTypes.func.isRequired
+// };
 
 export default connect(null, { createAccount })(AccountInput)
