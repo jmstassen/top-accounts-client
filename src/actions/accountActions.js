@@ -3,9 +3,9 @@ import { FETCH_ACCOUNTS, NEW_ACCOUNT, CHANGE_CURRENT_ACCOUNT, EDIT_ACCOUNT_NAME,
 export const fetchAccounts = () => dispatch => {
   fetch("http://localhost:3000/api/v1/accounts")
     .then(res => res.json())
-    .then(accounts => dispatch({
+    .then(data => dispatch({
       type: FETCH_ACCOUNTS,
-      payload: accounts
+      payload: data
     })
   );
 };
