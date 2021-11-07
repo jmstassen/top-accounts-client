@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import accounts from './accounts';
+import accountReducer from './accountReducer';
 // import activities from './activities';
 
 const rootReducer = combineReducers({
-  accounts,
+  accountReducer,
   // activities
 });
 
