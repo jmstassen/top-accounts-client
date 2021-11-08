@@ -1,32 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
-import { createAccount } from '../actions/accountActions'
+import { addAccount } from '../actions/accountActions'
 
 class AccountInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      account_name: ''
-    };
+  state = {account_name: ''}
 
-    this.onChange = this.handleOnChange.bind(this);
-    this.onSubmit = this.handleOnSubmit.bind(this);
-  }
-
-  handleOnChange(event) {
+  handleChange = (event) => {
     this.setState({
-      account_name: event.target.value,
+      [event.target.name]: event.target.value
     });
   }
 
-  handleOnSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
-    const account = {
-      ...this.state,
-    }
-    this.props.createAccount(account)
+    this.props.addAccount(this.state)
+    
     this.setState({
       account_name: ''
     });
@@ -35,21 +24,18 @@ class AccountInput extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
+            placeholder="account name"
             value={this.state.account_name}
-            onChange={(event) => this.handleOnChange(event)} />
-          <input type="submit" />
+            name="account_name"
+            onChange={this.handleChange} />
+          <input type="submit" value="add account"/>
         </form>
       </div>
     )
   }
-
 }
 
-// AccountInput.propTypes = {
-//   createAccount: PropTypes.func.isRequired
-// };
-
-export default connect(null, { createAccount })(AccountInput)
+export default connect(null, { addAccount })(AccountInput)
