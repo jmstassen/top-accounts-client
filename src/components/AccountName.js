@@ -1,25 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 
-class AccountName extends Component {
+const AccountName = (props) => {
 
-//   componentDidUpdate(nextProps) {
-//     if (nextProps.newAccount) {
-//       this.props.accounts.unshift(nextProps.newAccount)
-//     }
-//   }
+// let account = props.accounts[props.match.params.id - 1]
 
-  render() {
-    return (
-      <div>
-        AccountName
-      </div>
-    )
-  }
+  return (
+    <div>
+      {/* <h3>{props.account.account_name}</h3> */}
+    </div>
+  )
+
 }
 
-const mapStateToProps = state => ({
-   current_account: state.current_account
-})
-
-export default connect(mapStateToProps, null)(AccountName)
+export default AccountName
