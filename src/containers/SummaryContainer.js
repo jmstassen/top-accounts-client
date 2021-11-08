@@ -7,7 +7,7 @@ class SummaryContainer extends Component {
   render() {
     return (
       <div>
-        <AccountName current_account={this.props.current_account}/>
+        <AccountName account={this.props.current_account}/>
       </div>
     ) 
   }
