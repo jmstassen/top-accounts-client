@@ -1,10 +1,16 @@
 import React from 'react';
+import {Route, Link} from 'react-router-dom';
+import SummaryContainer from '../containers/SummaryContainer';
 
 const AccountsList = (props) => {
 
   return (
     <div>
-      {props.accounts.map(account => <li key={account.id}>{account.account_name}</li>)}
+      {props.accounts.map(account => 
+        <div key={account.id}>
+          {<Link to={`/accounts/${account.id}`}>{account.account_name}</Link>}
+        </div>
+      )}
     </div>
   )
   
