@@ -11,13 +11,13 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <div className="container-card">
+        <div className="summary-container">
           <SummaryContainer account={this.props.current_account} />
         </div>
-        <div className="container-card">
+        <div className="objectives-container">
           <ObjectivesContainer account={this.props.current_account} />
         </div>
-        <div className="right-column-card">
+        <div className="accounts-container">
           <AccountsContainer />
         </div>
         <div className="activity-container">
