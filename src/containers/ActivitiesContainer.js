@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Activity from "../components/Activity";
 
 class ActivitiesContainer extends Component {
 
