@@ -1,5 +1,5 @@
 export const FETCH_ACCOUNTS = 'FETCH_ACCOUNTS';
-export const NEW_ACCOUNT = 'NEW_ACCOUNT';
+export const ADD_ACCOUNT = 'ADD_ACCOUNT';
 
 // export const CHANGE_CURRENT_ACCOUNT = 'CHANGE_CURRENT_ACCOUNT';
 
