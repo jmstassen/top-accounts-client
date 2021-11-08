@@ -12,8 +12,9 @@ class AccountsContainer extends Component {
   render() {
     return (
       <div>
-        <p>My Top Accounts</p>
+        <h3>My Top Accounts</h3>
         <AccountsList accounts={this.props.accounts}/>
+        <br></br>
         <AccountInput />
       </div>
     )
