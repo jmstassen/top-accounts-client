@@ -1,4 +1,4 @@
-import { FETCH_ACCOUNTS, NEW_ACCOUNT, CHANGE_CURRENT_ACCOUNT, EDIT_ACCOUNT_NAME, DELETE_ACCOUNT } from "./types";
+import { FETCH_ACCOUNTS, ADD_ACCOUNT } from "./types";
 
 export function fetchAccounts() {
   return (dispatch) => {
@@ -11,18 +11,20 @@ export function fetchAccounts() {
     };
 };
 
-export const createAccount = (accountData) => dispatch => {
-  fetch("http://localhost:3000/api/v1/accounts", {
+export const addAccount = (data) => {
+  return (dispatch) => {
+    fetch("http://localhost:3000/api/v1/accounts", {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify(accountData)
-  })
+    body: JSON.stringify(data)
+    })
     .then(res => res.json())
     .then(account => dispatch({
-      type: NEW_ACCOUNT,
+      type: ADD_ACCOUNT,
       payload: account
-    })
-  );
-};
+    })) 
+  }
+}
+  
