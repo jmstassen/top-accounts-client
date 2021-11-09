@@ -5,8 +5,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/index';
-
-import { BrowserRouter as Router } from 'react-router-dom';
+import AccountsContainer from './containers/AccountsContainer';
+import AccountContainer from './containers/AccountContainer';
+import { BrowserRouter as Router, Routes, Route, Link, Outlet, useParams } from 'react-router-dom';
 
 import App from './App';
 
@@ -20,6 +21,27 @@ let store = createStore(
 ReactDOM.render(
     <Provider store={store}>
       <Router>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/accounts">Accounts</Link>
+        </nav>
+        
+        <Routes>
+          <Route path="/" element={ <div className="accounts-container"><AccountsContainer /></div>} />
+          <Route path="accounts" element={<div className="app">
+            <div className="account-container">
+              <AccountContainer />
+            </div>
+            <div className="accounts-container">
+              <AccountsContainer />
+            </div>
+          </div>}> 
+            <Route path='/accounts/:id' element={ <div className="account-container">
+              <AccountContainer />
+               </div>} />
+          </Route>
+        </Routes>
+        
         <App />
       </Router>
     </Provider>,
