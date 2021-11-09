@@ -6,7 +6,7 @@ const AccountName = (props) => {
 
   return (
     <div>
-      {/* <h3>{props.account.account_name}</h3> */}
+      <h3>{props.account.account_name}</h3>
     </div>
   )
 
