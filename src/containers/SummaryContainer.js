@@ -2,20 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import AccountName from "../components/AccountName";
 
-class SummaryContainer extends Component {
-  
-  render() {
+function SummaryContainer(props) {
     return (
       <div>
-        <AccountName account={this.props.current_account}/>
+        <AccountName account={props.account}/>
       </div>
-    ) 
-  }
+  ) 
 }
 
-const mapStateToProps = state => ({
-   current_account: state.accountReducer.current_account
-})
-
-
-export default connect(mapStateToProps, null)(SummaryContainer)
+export default SummaryContainer
