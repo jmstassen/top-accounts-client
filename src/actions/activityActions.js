@@ -1,4 +1,4 @@
-import { ADD_ACTIVITY, EDIT_ACTIVITY, DELETE_ACTIVITY } from "./types";
+import { ADD_ACTIVITY } from "./types";
 
 export const addActivity = (data) => {
   return (dispatch) => {
