@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers/index';
 import AccountsContainer from './containers/AccountsContainer';
 import AccountContainer from './containers/AccountContainer';
-import { BrowserRouter as Router, Routes, Route, Link, Outlet, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import App from './App';
 
@@ -21,9 +21,9 @@ let store = createStore(
 ReactDOM.render(
     <Provider store={store}>
       <Router>
+        <App />
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/accounts">Accounts</Link>
+          <Link to="/">Home</Link> | <Link to="/accounts">Accounts</Link>
         </nav>
         
         <Routes>
@@ -41,8 +41,6 @@ ReactDOM.render(
                </div>} />
           </Route>
         </Routes>
-        
-        <App />
       </Router>
     </Provider>,
   document.getElementById('root')
