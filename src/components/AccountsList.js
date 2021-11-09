@@ -1,6 +1,5 @@
 import React from 'react';
-import {Route, Link} from 'react-router-dom';
-import SummaryContainer from '../containers/SummaryContainer';
+import { Link } from 'react-router-dom';
 
 const AccountsList = (props) => {
 
