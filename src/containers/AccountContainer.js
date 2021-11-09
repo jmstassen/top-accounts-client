@@ -10,10 +10,10 @@ function AccountContainer(props) {
  
   useEffect(()=>{
     props.fetchAccounts();
-  },[])
+  }, []);
   
   const { id } = useParams();
-  const account = props.accounts[id - 1];
+  const account = props.accounts.filter(account => account.id == id)[0]
 
     return (
       <>
