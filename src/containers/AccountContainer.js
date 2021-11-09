@@ -1,31 +1,35 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from 'react-redux';
 import ObjectivesContainer from "./ObjectivesContainer";
 import ActivitiesContainer from "./ActivitiesContainer";
 import { fetchAccounts } from "../actions/accountActions";
 import SummaryContainer from "./SummaryContainer";
+import { useParams } from 'react-router-dom'
 
-class AccountContainer extends Component {
-  componentDidMount() {
-    this.props.fetchAccounts()
-  }
+function AccountContainer(props) {
+ 
+  useEffect(()=>{
+    props.fetchAccounts();
+  },[])
   
-  render() {
+  const { id } = useParams();
+  const account = props.accounts[id - 1];
+
     return (
       <>
         <div className="summary-container">
-          <SummaryContainer />
+          <SummaryContainer account={account}/>
         </div>
         <div className="objectives-container">
-          <ObjectivesContainer />
+          <ObjectivesContainer account={account}/>
         </div>
         <div className="activity-container">
-          <ActivitiesContainer />
+          <ActivitiesContainer account={account}/>
         </div>
       </>
     )
   }
-}
+
 
 const mapStateToProps = state => {
   return {
