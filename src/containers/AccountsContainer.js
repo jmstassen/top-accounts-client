@@ -18,9 +18,6 @@ class AccountsContainer extends Component {
         <AccountsList accounts={this.props.accounts}/>
         <br></br>
         <AccountInput />
-        <Routes>
-          <Route path='/accounts/:id' render={(routerProps) => <AccountContainer {...routerProps} accounts={this.props.accounts}/>}/>
-        </Routes>
       </div>
     )
   }
