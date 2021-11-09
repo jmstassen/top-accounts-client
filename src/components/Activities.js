@@ -6,7 +6,7 @@ const Activities = (props) => {
 
     return (
         <div>
-          {props.activities.map(activity => 
+          {props.activities && props.activities.map(activity => 
         <div key={activity.id}>
           <p>{activity.activity_date} - {activity.activity_type} : {activity.activity_name}</p>
         </div>
