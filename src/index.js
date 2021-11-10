@@ -23,7 +23,7 @@ ReactDOM.render(
       <Router>
         <App />
         <nav>
-          <Link to="/">Home</Link> | <Link to="/accounts">Accounts</Link>
+          <Link to="/">Home</Link> | <Link to="/accounts/1">Accounts</Link>
         </nav>
         
         <Routes>
@@ -36,9 +36,9 @@ ReactDOM.render(
               <AccountsContainer />
             </div>
           </div>}> 
-            <Route path='/accounts/:id' element={ <div className="account-container">
-              <AccountContainer />
-               </div>} />
+          <Route path='/accounts/:id' element={ () => <div className="account-container">
+            <AccountContainer />
+          </div>} />
           </Route>
         </Routes>
       </Router>
