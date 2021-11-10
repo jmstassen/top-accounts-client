@@ -1,13 +1,13 @@
-import { ADD_ACTIVITY } from "./types";
+import { ADD_ACTIVITY, DELETE_ACTIVITY } from "./types";
 
-export const addActivity = (data) => {
+export const addActivity = (activity, accountId) => {
   return (dispatch) => {
-    fetch("http://localhost:3000/api/v1/activities", {
+    fetch(`http://localhost:3000/api/v1/accounts/${accountId}/activities`, {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(activity)
     })
     .then(res => res.json())
     .then(account => dispatch({
@@ -16,3 +16,17 @@ export const addActivity = (data) => {
     })) 
   }
 }
+
+export const deleteActivity = (activityId, accountId) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/accounts/${accountId}/activities/${activityId}`, {
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(account => dispatch({
+      type: DELETE_ACTIVITY,
+      payload: account
+    }))
+  }
+}
+  
