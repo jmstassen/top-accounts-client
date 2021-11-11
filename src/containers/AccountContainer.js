@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { connect } from 'react-redux';
-import ObjectivesContainer from "./ObjectivesContainer";
 import ActivitiesContainer from "./ActivitiesContainer";
 import { fetchAccounts } from "../actions/accountActions";
 import SummaryContainer from "./SummaryContainer";
@@ -20,9 +19,6 @@ function AccountContainer(props) {
         <div className="summary-container">
           <SummaryContainer account={account}/>
         </div>
-        {/* <div className="objectives-container">
-          <ObjectivesContainer account={account}/>
-        </div> */}
         <div className="activity-container">
           <ActivitiesContainer account={account}/>
         </div>
