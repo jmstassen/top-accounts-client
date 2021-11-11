@@ -1,4 +1,4 @@
-import { FETCH_ACCOUNTS, ADD_ACCOUNT } from "./types";
+import { FETCH_ACCOUNTS, ADD_ACCOUNT, DELETE_ACCOUNT } from "./types";
 
 export function fetchAccounts() {
   return (dispatch) => {
@@ -25,6 +25,19 @@ export const addAccount = (data) => {
       type: ADD_ACCOUNT,
       payload: account
     })) 
+  }
+}
+
+export const deleteAccount = (accountId) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/accounts/${accountId}`, {
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(account => dispatch({
+      type: DELETE_ACCOUNT,
+      payload: account
+    }))
   }
 }
   
