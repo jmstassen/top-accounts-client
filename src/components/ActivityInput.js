@@ -30,7 +30,8 @@ class ActivityInput extends Component {
             placeholder="activity date"
             value={this.state.activity_date}
             name="activity_date"
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            />
             <select
             placeholder="activity type"
             value={this.state.activity_type}
@@ -49,7 +50,8 @@ class ActivityInput extends Component {
             placeholder="activity name"
             value={this.state.activity_name}
             name="activity_name"
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+            />
           <input type="submit" value="add activity"/>
         </form>
       </div>
