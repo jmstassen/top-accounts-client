@@ -4,6 +4,8 @@ import Activities from "../components/Activities"
 
 class ActivitiesContainer extends Component {
   
+  
+
   render() {
     return <div>
       <p>Activities</p>
