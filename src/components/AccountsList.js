@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { deleteAccount } from '../actions/accountActions'
 import { connect } from 'react-redux';
+import { Navigate } from 'react-router-dom'
 
 const AccountsList = (props) => {
 
   const handleDelete = (account) => {
-    props.deleteAccount(account.id)
+    props.deleteAccount(account.id);
+    return <Navigate to="/accounts" />
    }
 
   return (
