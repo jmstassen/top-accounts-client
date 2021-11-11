@@ -16,7 +16,7 @@ function AccountContainer(props) {
   const account = props.accounts.filter(account => account.id == id)[0]
 
     return (
-      <>
+      <div className="account-container">
         <div className="summary-container">
           <SummaryContainer account={account}/>
         </div>
@@ -26,7 +26,7 @@ function AccountContainer(props) {
         <div className="activity-container">
           <ActivitiesContainer account={account}/>
         </div>
-      </>
+      </div>
     )
   }
 
