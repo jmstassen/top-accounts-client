@@ -25,7 +25,6 @@ export default function accountReducer(state = {accounts: []}, action) {
       })
       return {...state, accounts: accountsDel}
     case DELETE_ACCOUNT:
-      debugger
       let delAccounts = state.accounts.filter(account => account.id === action.payload ? false : true)
       return {...state, accounts: delAccounts}
     default:
