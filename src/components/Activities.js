@@ -9,13 +9,22 @@ const Activities = (props) => {
    }
 
     return (
-        <div>
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Actions</th>
+            </tr>
           {props.activities && props.activities.map(activity => 
-        <div key={activity.id}>
-          <p>{activity.activity_date} - {activity.activity_type} : {activity.activity_name} <button onClick={() => handleDelete(activity)}>delete</button></p>
-        </div>
+        <tr key={activity.id}>
+          <td>{activity.activity_date}</td>
+          <td>{activity.activity_type}</td>
+          <td>{activity.activity_name}</td>
+          <td><button onClick={() => handleDelete(activity)}>delete</button></td>
+        </tr>
       )}
-        </div>
+        </table>
     )
 }
 
