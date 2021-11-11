@@ -36,6 +36,7 @@
     border: solid black 0px;
     display: grid;
     grid-template-columns: 2fr 2fr 1.5fr;
+    max-width: 1300px;
     column-gap: 5px;
   }
 
