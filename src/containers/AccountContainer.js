@@ -20,9 +20,9 @@ function AccountContainer(props) {
         <div className="summary-container">
           <SummaryContainer account={account}/>
         </div>
-        <div className="objectives-container">
+        {/* <div className="objectives-container">
           <ObjectivesContainer account={account}/>
-        </div>
+        </div> */}
         <div className="activity-container">
           <ActivitiesContainer account={account}/>
         </div>
