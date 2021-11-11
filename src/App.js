@@ -1,12 +1,23 @@
 import './App.css';
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import AccountsContainer from './containers/AccountsContainer';
+import AccountContainer from './containers/AccountContainer';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+// import AccountLanding from './components/Account Landing';
 
 class App extends Component {
   render() {
-    return (
-      <div className="app">
-      </div>
+    return (     
+        <>
+        <Routes>
+          <Route path="/" element={ <Home /> }/>
+          <Route path="accounts" element={ <AccountsContainer /> }>
+            <Route path="/accounts/:id" element={ <AccountContainer />}/>
+          </Route>
+        </Routes>
+        </>
     );
   }
 }
