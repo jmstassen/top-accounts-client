@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import AccountInput from "../components/AccountInput";
 import AccountsList from "../components/AccountsList";
 import { fetchAccounts } from "../actions/accountActions";
+import { Outlet } from 'react-router-dom'
 
 class AccountsContainer extends Component {
   componentDidMount() {
@@ -11,12 +12,15 @@ class AccountsContainer extends Component {
   
   render() {
     return (
-      <div>
+      <>
+        <Outlet />
+      <div className="accounts-container">
         <h3>My Top Accounts</h3>
         <AccountsList accounts={this.props.accounts}/>
         <br></br>
         <AccountInput />
       </div>
+      </>
     )
   }
 }
