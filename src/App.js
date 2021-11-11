@@ -5,6 +5,7 @@ import AccountsContainer from './containers/AccountsContainer';
 import AccountContainer from './containers/AccountContainer';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
+import AllAccounts from './components/AllAccounts';
 // import AccountLanding from './components/Account Landing';
 
 class App extends Component {
@@ -13,9 +14,8 @@ class App extends Component {
         <>
         <Routes>
           <Route path="/" element={ <Home /> }/>
-          <Route path="accounts" element={ <AccountsContainer /> }>
-            <Route path="/accounts/:id" element={ <AccountContainer />}/>
-          </Route>
+          <Route path="accounts" element={ <AllAccounts /> }/>
+          <Route path="/accounts/:id" element={ <AccountContainer /> }/>
         </Routes>
         </>
     );
