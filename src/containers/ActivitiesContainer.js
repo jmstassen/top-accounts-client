@@ -9,8 +9,8 @@ class ActivitiesContainer extends Component {
   render() {
     return <div>
       <p>Activities</p>
-      <ActivityInput account={this.props.account}/>
-      <Activities activities={this.props.account.activities}/>
+      <ActivityInput account={this.props.account && this.props.account}/>
+      <Activities activities={this.props.account && this.props.account.activities}/>
     </div>  
   }
 }
