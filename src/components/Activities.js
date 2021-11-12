@@ -1,12 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { deleteActivity } from '../actions/activityActions'
+import { Link } from 'react-router-dom'
 
 const Activities = (props) => {
 
    const handleDelete = (activity) => {
+    var result = window.confirm("Are you sure you want to delete this Activity?");
+    if (result==true) {
     props.deleteActivity(activity.id, activity.account_id)
    }
+  }
 
     return (
         <table>
@@ -21,7 +25,8 @@ const Activities = (props) => {
           <td>{activity.activity_date}</td>
           <td>{activity.activity_type}</td>
           <td>{activity.activity_name}</td>
-          <td><button onClick={() => handleDelete(activity)}>delete</button></td>
+          <td><button onClick={() => handleDelete(activity)}>delete</button> | 
+          <Link to={`/accounts/${activity.account_id}/activities/${activity.id}/edit`}>edit</Link></td>
         </tr>
       )}
         </table>
