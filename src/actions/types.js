@@ -8,5 +8,5 @@ export const ADD_ACCOUNT = 'ADD_ACCOUNT';
 export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
 
 export const ADD_ACTIVITY = 'ADD_NEW_ACTIVITY'
-// export const EDIT_ACTIVITY = 'EDIT_ACTIVITY';
+export const EDIT_ACTIVITY = 'EDIT_ACTIVITY';
 export const DELETE_ACTIVITY = 'DELETE_ACTIVITY';
