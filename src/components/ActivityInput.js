@@ -24,15 +24,17 @@ class ActivityInput extends Component {
   render() {
     return (
       <div>
+        <h3>Add new activity:</h3>
+        <br></br>
         <form onSubmit={this.handleSubmit}>
-        <input
+            <label>Date: </label><input
             type="date"
             placeholder="activity date"
             value={this.state.activity_date}
             name="activity_date"
             onChange={this.handleChange}
-            />
-            <select
+            /><br></br><br></br>
+          <label>Type: </label><select
             placeholder="activity type"
             value={this.state.activity_type}
             name="activity_type"
@@ -44,14 +46,15 @@ class ActivityInput extends Component {
                 <option>financial</option>
                 <option>summary</option>
                 <option>objective</option>
-                </select>
-          <input
+                </select><br></br><br></br>
+                <label>Description: </label><input
             type="text"
-            placeholder="activity name"
+            size="50"
+            placeholder="activity description"
             value={this.state.activity_name}
             name="activity_name"
             onChange={this.handleChange}
-            />
+            /><br></br><br></br>
           <input type="submit" value="add activity"/>
         </form>
       </div>
