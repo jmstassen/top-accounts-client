@@ -16,12 +16,12 @@ class ActivityEdit extends Component {
     event.preventDefault();
 
     this.props.editActivity(this.state, this.props.account.id, this.props.activity.id)
+    window.alert("activity has been updated")
   }
 
   render() {
     return (
       <div>
-        <Link to={`/accounts/${this.props.account.id}`}>back to account</Link>
         <br></br>
         <br></br>
         <h3>Edit activity:</h3>
@@ -52,7 +52,7 @@ class ActivityEdit extends Component {
             name="activity_name"
             onChange={this.handleChange}
             /><br></br><br></br>
-          <input type="submit" value="update activity"/>
+          <input type="submit" value="update activity"/> | <Link to={`/accounts/${this.props.account.id}`}>back to account</Link>
         </form>
       </div>
     )
