@@ -1,4 +1,4 @@
-import { FETCH_ACCOUNTS, ADD_ACCOUNT , ADD_ACTIVITY, DELETE_ACTIVITY, DELETE_ACCOUNT } from '../actions/types';
+import { FETCH_ACCOUNTS, ADD_ACCOUNT , ADD_ACTIVITY, DELETE_ACTIVITY, DELETE_ACCOUNT, EDIT_ACTIVITY } from '../actions/types';
 
 export default function accountReducer(state = {accounts: []}, action) {
   switch(action.type) {
@@ -24,6 +24,15 @@ export default function accountReducer(state = {accounts: []}, action) {
         }
       })
       return {...state, accounts: accountsDel}
+    case EDIT_ACTIVITY:
+        let accountsEdit = state.accounts.map(account => {
+          if (account.id === action.payload.id) {
+            return action.payload
+          } else {
+            return account
+          }
+        })
+        return {...state, accounts: accountsEdit}
     case DELETE_ACCOUNT:
       let delAccounts = state.accounts.filter(account => account.id === action.payload ? false : true)
       return {...state, accounts: delAccounts}
