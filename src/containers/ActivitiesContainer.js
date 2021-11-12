@@ -8,8 +8,8 @@ class ActivitiesContainer extends Component {
 
   render() {
     return <div>
-      <p>Activities</p>
       <ActivityInput account={this.props.account && this.props.account}/>
+      <br></br><hr></hr><br></br>
       <Activities activities={this.props.account && this.props.account.activities}/>
     </div>  
   }
