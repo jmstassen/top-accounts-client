@@ -6,8 +6,11 @@ import { connect } from 'react-redux';
 const AccountsList = (props) => {
 
   const handleDelete = (account) => {
-    props.deleteAccount(account.id);
+    var result = window.confirm("Are you sure you want to delete this Account?");
+    if (result==true) {
+      props.deleteAccount(account.id);
    }
+  }
 
   return (
     <div>
