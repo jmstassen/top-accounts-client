@@ -13,7 +13,7 @@ class AllAccounts extends Component {
 
   render () {
       return (
-    <div className="account-container">
+    <div className="accounts-container">
       <AccountsList accounts={this.props.accounts}/>
       <br></br>
       <AccountInput />
