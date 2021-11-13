@@ -5,32 +5,35 @@ import { Link } from 'react-router-dom'
 
 const Activities = (props) => {
 
-   const handleDelete = (activity) => {
+  const handleDelete = (activity) => {
     var result = window.confirm("Are you sure you want to delete this Activity?");
-    if (result==true) {
-    props.deleteActivity(activity.id, activity.account_id)
-   }
+    if (result === true) {
+      props.deleteActivity(activity.id, activity.account_id)
+    }
   }
 
-    return (
-        <table>
-          <tr>
-            <th>Date</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Actions</th>
-            </tr>
-          {props.activities && props.activities.map(activity => 
-        <tr key={activity.id}>
-          <td>{activity.activity_date}</td>
-          <td>{activity.activity_type}</td>
-          <td>{activity.activity_name}</td>
-          <td><button onClick={() => handleDelete(activity)}>delete</button> | 
-          <Link to={`/accounts/${activity.account_id}/activities/${activity.id}/edit`}>edit</Link></td>
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Actions</th>
         </tr>
-      )}
-        </table>
-    )
+      </thead>
+      <tbody>
+        {props.activities && props.activities.map(activity => 
+          <tr key={activity.id}>
+            <td className="date-column">{activity.activity_date}</td>
+            <td>{activity.activity_type}</td>
+            <td>{activity.activity_name}</td>
+            <td><button onClick={() => handleDelete(activity)}>delete</button> | <Link to={`/accounts/${activity.account_id}/activities/${activity.id}/edit`}>edit</Link></td>
+          </tr>
+        )}
+      </tbody>
+    </table>
+  )
 }
 
 export default connect(null, { deleteActivity })(Activities)
