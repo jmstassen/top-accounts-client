@@ -6,23 +6,24 @@ import { useParams } from 'react-router-dom'
 
 function EditActivityContainer(props) {
  
+  const { fetchAccounts } = props
+
   useEffect(()=>{
-    props.fetchAccounts();
-  }, []);
+    fetchAccounts();
+  }, [fetchAccounts]);
   
   const { id, activity_id } = useParams();
-  const account = props.accounts.filter(account => account.id == id)[0]
-  const activity = account.activities.filter(activity => activity.id == activity_id)[0]
+  const account = props.accounts.filter(account => account.id === parseInt(id))[0]
+  const activity = account.activities.filter(activity => activity.id === parseInt(activity_id))[0]
 
-    return (
-      <div className="account-container">
-        <div className="summary-container">
-          <ActivityEdit account={account} activity={activity}/>
-        </div>
+  return (
+    <div className="account-container">
+      <div className="summary-container">
+        <ActivityEdit account={account} activity={activity}/>
       </div>
-    )
-  }
-
+    </div>
+  )
+}
 
 const mapStateToProps = state => {
   return {
