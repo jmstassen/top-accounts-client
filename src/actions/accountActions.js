@@ -1,4 +1,4 @@
-import { FETCH_ACCOUNTS, ADD_ACCOUNT, DELETE_ACCOUNT } from "./types";
+import { FETCH_ACCOUNTS, ADD_ACCOUNT, DELETE_ACCOUNT, EDIT_ACCOUNT } from "./types";
 
 export function fetchAccounts() {
   return (dispatch) => {
@@ -8,7 +8,7 @@ export function fetchAccounts() {
       type: FETCH_ACCOUNTS,
       payload: accounts
     }))
-    };
+  };
 };
 
 export const addAccount = (data) => {
@@ -36,6 +36,23 @@ export const deleteAccount = (accountId) => {
     .then(response => response.json())
     .then(account => dispatch({
       type: DELETE_ACCOUNT,
+      payload: account
+    }))
+  }
+}
+
+export const editAccount = (account, accountId) => {
+  return (dispatch) => {
+    fetch(`http://localhost:3000/api/v1/accounts/${accountId}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(account)
+    })
+    .then(response => response.json())
+    .then(account => dispatch({
+      type: EDIT_ACCOUNT,
       payload: account
     }))
   }
