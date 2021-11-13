@@ -7,25 +7,27 @@ import { useParams } from 'react-router-dom'
 
 function AccountContainer(props) {
  
+  const { fetchAccounts } = props
+
   useEffect(()=>{
-    props.fetchAccounts();
-  }, []);
+    fetchAccounts();
+  }, [fetchAccounts]);
   
   const { id } = useParams();
-  const account = props.accounts.filter(account => account.id == id)[0]
+  
+  const account = props.accounts.filter(account => account.id === parseInt(id))[0]
 
-    return (
-      <div className="account-container">
-        <div className="summary-container">
-          <SummaryContainer account={account}/>
-        </div>
-        <div className="activity-container">
-          <ActivitiesContainer account={account}/>
-        </div>
+  return (
+    <div className="account-container">
+      <div className="summary-container">
+        <SummaryContainer account={account}/>
       </div>
-    )
-  }
-
+      <div className="activity-container">
+        <ActivitiesContainer account={account}/>
+      </div>
+    </div>
+  )
+}
 
 const mapStateToProps = state => {
   return {
