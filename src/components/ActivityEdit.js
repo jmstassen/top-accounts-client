@@ -16,42 +16,46 @@ class ActivityEdit extends Component {
     event.preventDefault();
 
     this.props.editActivity(this.state, this.props.account.id, this.props.activity.id)
-    window.alert("activity has been updated")
+    window.alert("Activity has been updated")
   }
 
   render() {
     return (
       <div>
-        <br></br>
-        <br></br>
         <h3>Edit activity:</h3>
         <br></br>
         <form onSubmit={this.handleSubmit}>
-            <label>Date: </label><input
-            type="date"
-            value={this.state.activity_date}
-            name="activity_date"
-            onChange={this.handleChange}
-            /><br></br><br></br>
-          <label>Type: </label><select
-            value={this.state.activity_type}
-            name="activity_type"
-            onChange={this.handleChange}>
-                <option>email</option>
-                <option>meeting</option>
-                <option>event</option>
-                <option>document</option>
-                <option>financial</option>
-                <option>summary</option>
-                <option>objective</option>
-                </select><br></br><br></br>
-                <label>Description: </label><input
-            type="text"
-            size="50"
-            value={this.state.activity_name}
-            name="activity_name"
-            onChange={this.handleChange}
-            /><br></br><br></br>
+          <label>Date: </label>
+          <input
+          type="date"
+          value={this.state.activity_date}
+          name="activity_date"
+          onChange={this.handleChange}
+          />
+          <br></br><br></br>
+          <label>Type: </label>
+          <select
+          value={this.state.activity_type}
+          name="activity_type"
+          onChange={this.handleChange}>
+            <option>email</option>
+            <option>meeting</option>
+            <option>event</option>
+            <option>document</option>
+            <option>financial</option>
+            <option>summary</option>
+            <option>objective</option>
+          </select>
+          <br></br><br></br>
+          <label>Description: </label>
+          <input
+          type="text"
+          size="50"
+          value={this.state.activity_name}
+          name="activity_name"
+          onChange={this.handleChange}
+          />
+          <br></br><br></br>
           <input type="submit" value="update activity"/> | <Link to={`/accounts/${this.props.account.id}`}>back to account</Link>
         </form>
       </div>
